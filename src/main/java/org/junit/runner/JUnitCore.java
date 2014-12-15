@@ -92,7 +92,8 @@ public class JUnitCore {
         } else {
           pass();
         }
-      } catch (Throwable t) {
+      } catch (InvocationTargetException ite) {
+        Throwable t = ite.getCause();
         if (expected != null && expected.isInstance(t)) {
           // expected failure, yay
           pass();

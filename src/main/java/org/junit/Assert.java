@@ -37,6 +37,26 @@ public class Assert {
     assertTrue(Arrays.deepEquals(a1, a2));
   }
   
+  public static void assertEquals(int i1, int i2) {
+    assertEquals(i1, i2, 0);
+  }
+  
+  public static void assertEquals(int d1, int d2, int allowedDelta) {
+    if (d1 - d2 > allowedDelta || d2 - d1 > allowedDelta) {
+      throw new AssertFailure();
+    }
+  }
+  
+  public static void assertEquals(long i1, long i2) {
+    assertEquals(i1, i2, 0);
+  }
+  
+  public static void assertEquals(long d1, long d2, long allowedDelta) {
+    if (d1 - d2 > allowedDelta || d2 - d1 > allowedDelta) {
+      throw new AssertFailure();
+    }
+  }
+  
   public static void assertEquals(double d1, double d2, double allowedDelta) {
     if (d1 - d2 > allowedDelta || d2 - d1 > allowedDelta) {
       throw new AssertFailure();
